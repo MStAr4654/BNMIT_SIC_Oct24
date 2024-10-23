@@ -25,3 +25,8 @@ for i in range(1,21):
     print(n,"x",i,"=",n*i) #print("%2d * %02d = %03d" %(n,i,n*i))
 """
 #------------------------------------------------------------------------------------------------------------
+#A16
+num = input("Enter a number to find your lucky digit: ");sum=0
+print(type(num))
+for i in range(-1,(len(num))):
+    print(num[i])
