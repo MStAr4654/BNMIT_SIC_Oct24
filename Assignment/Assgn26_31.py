@@ -56,25 +56,26 @@ print("\n")
 29.
 Print the Nth Prime number
 """
-def prime(num):
-    c = 0
-    for i in range(1,num+1):
-        if i % num == 0:
-            c += 1
-    if c==2: return True,num
-    else: return False
+
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
 
 n = int(input("Enter the nth Prime Number you wish to see: "))
 cnt,pri = 0,0
 for i in range(1,1000):
-    if prime(i) == True:
-        pri = prime(i)
+    res = is_prime(i)
+    if res==True:
+        pri=i
         cnt += 1
     if cnt == n:
         break
 print("nth Prime Number: ",pri)
-    
-            
+        
 
 #============================================================================
 
@@ -85,9 +86,9 @@ Check if the sum of Prime digits in a number is a Prime number
 
 prim_str = str(pri)
 for j in prim_str:
-    if prime(int(j)) == True:
+    if is_prime(int(j)) == True:
         sum+=int(j)
-if prime(sum) == True: print("The sum is a Prime Number")
+if is_prime(sum) == True: print("The sum is a Prime Number")
 else: print("The sum isn't a Prime Number")
 print("\n")
 
